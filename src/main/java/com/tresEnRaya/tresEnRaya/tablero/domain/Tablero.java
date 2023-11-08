@@ -2,21 +2,17 @@ package com.tresEnRaya.tresEnRaya.tablero.domain;
 
 public class Tablero {
 
-    private char [][] tablero;
     private Integer posicionFila;
     private Integer posicionColumna;
-    private Integer jugador;
+    private Integer idJugador;
 
-    public Tablero(char[][] tablero, Integer posicionColumna, Integer posicionFila) {
-        this.tablero = tablero;
+    public Tablero(Integer posicionColumna, Integer posicionFila) {
+
         this.posicionColumna = posicionColumna;
         this.posicionFila = posicionFila;
-        this.jugador = 1;
+        this.idJugador = 1;
     }
 
-    public char[][] getTablero() {
-        return tablero;
-    }
 
     public Integer getPosicionFila() {
         return posicionFila;
@@ -26,11 +22,11 @@ public class Tablero {
         return posicionColumna;
     }
 
-    public Integer getJugador() {
-        return jugador;
+    public Integer getIdJugador() {
+        return idJugador;
     }
 
-    public void setJugador(Integer jugador) {
-        this.jugador = jugador;
+    public void setIdJugador(Integer idJugador) {
+        this.idJugador = idJugador;
     }
 }

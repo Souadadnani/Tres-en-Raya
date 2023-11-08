@@ -1,5 +1,6 @@
 package com.tresEnRaya.tresEnRaya.tablero.applicacion;
 
+import com.tresEnRaya.tresEnRaya.tablero.domain.Tablero;
 import com.tresEnRaya.tresEnRaya.tablero.domain.TableroRepository;
 
 public class TableroUseCases {
@@ -10,10 +11,10 @@ public class TableroUseCases {
         this.tableroRepository = tableroRepository;
     }
 
-    Integer movimiento(Integer fila, Integer columna){
+    Tablero movimiento(Integer fila, Integer columna){
         Integer [][] tablero = new Integer[fila][columna];
 
-        return fila;
+       return null;
     }
 
 }
