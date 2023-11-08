@@ -6,11 +6,11 @@ public class Tablero {
     private Integer posicionColumna;
     private Integer idJugador;
 
-    public Tablero(Integer posicionColumna, Integer posicionFila) {
+    public Tablero(Integer posicionColumna, Integer posicionFila, Integer idJugador) {
 
         this.posicionColumna = posicionColumna;
         this.posicionFila = posicionFila;
-        this.idJugador = 1;
+        this.idJugador = idJugador;
     }
 
 
@@ -26,7 +26,4 @@ public class Tablero {
         return idJugador;
     }
 
-    public void setIdJugador(Integer idJugador) {
-        this.idJugador = idJugador;
-    }
 }

@@ -1,8 +1,13 @@
 package com.tresEnRaya.tresEnRaya.tablero.domain;
 
+import java.util.List;
+
 public interface TableroRepository {
 
-    Tablero movimiento(Integer columna, Integer fila);
+    List<Tablero> movimiento(Tablero tablero);
+
+    List<Tablero> getTablero();
+
     void limpair();
 
 }
