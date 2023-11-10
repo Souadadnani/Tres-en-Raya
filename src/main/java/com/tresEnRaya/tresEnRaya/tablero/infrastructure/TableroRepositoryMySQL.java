@@ -4,7 +4,6 @@ import com.tresEnRaya.tresEnRaya.tablero.domain.Tablero;
 import com.tresEnRaya.tresEnRaya.tablero.domain.TableroRepository;
 import com.tresEnRaya.tresEnRaya.tablero.infrastructure.db.DBConexion;
 
-import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +14,6 @@ public class TableroRepositoryMySQL implements TableroRepository{
     public List<Tablero> movimiento(Tablero tablero) {
 
         Connection connection = DBConexion.getInstance();
-
-
 
         try(PreparedStatement ps = connection.prepareStatement("insert into tablero(jugador, posicionFila, posicionColumna) values(?,?,?);")){
 

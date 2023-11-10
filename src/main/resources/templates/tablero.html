@@ -5,8 +5,8 @@
     <title>Tablero</title>
 </head>
 <body>
-    <table border="1" >
-        <tr th:text="">
+    <table border="1" th:each="t :${tablero}">
+        <tr th:if="${t.idJugador == 1}" th:text="t.posiciofila = ">
             <td></td>
             <td></td>
             <td></td>
