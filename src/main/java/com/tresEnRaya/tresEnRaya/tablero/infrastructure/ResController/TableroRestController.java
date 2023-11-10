@@ -5,8 +5,6 @@ import com.tresEnRaya.tresEnRaya.tablero.applicacion.TableroUseCases;
 import com.tresEnRaya.tresEnRaya.tablero.domain.Tablero;
 import com.tresEnRaya.tresEnRaya.tablero.infrastructure.TableroRepositoryMySQL;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

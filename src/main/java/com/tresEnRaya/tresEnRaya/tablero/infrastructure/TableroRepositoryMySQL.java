@@ -14,9 +14,14 @@ public class TableroRepositoryMySQL implements TableroRepository{
     public List<Tablero> movimiento(Tablero tablero) {
 
         Connection connection = DBConexion.getInstance();
+        try(PreparedStatement pst = connection.prepareStatement("insert into jugadores(id) values(?);")){
+            pst.setInt(1, tablero.getIdJugador());
+            pst.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
 
         try(PreparedStatement ps = connection.prepareStatement("insert into tablero(jugador, posicionFila, posicionColumna) values(?,?,?);")){
-
             ps.setInt(1, tablero.getIdJugador());
             ps.setInt(2, tablero.getPosicionFila());
             ps.setInt(3, tablero.getPosicionColumna());
