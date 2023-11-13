@@ -22,8 +22,8 @@ public class TableroRestController {
     }
 
     @PostMapping(path = "/movimiento", consumes = MediaType.APPLICATION_JSON_VALUE)
-    List<Tablero> movimiento(@RequestBody Tablero tablero){
-         return this.tableroUseCasess.movimiento(tablero);
+    void movimiento(@RequestBody Tablero tablero){
+         this.tableroUseCasess.movimiento(tablero);
     }
 
     @PostMapping("/limpiar")

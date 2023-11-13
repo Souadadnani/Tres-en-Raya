@@ -14,11 +14,11 @@ public class TableroUseCases {
         this.tableroRepository = tableroRepository;
     }
 
-    public List<Tablero> movimiento(Tablero tablero){
-        return this.tableroRepository.movimiento(tablero);
+    public void movimiento(Tablero tablero){
+        this.tableroRepository.movimiento(tablero);
     }
 
-    public List<Tablero> getTablero(){
+    public String [][]  getTablero(){
         return  this.tableroRepository.getTablero();
     }
 

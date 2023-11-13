@@ -6,7 +6,7 @@ import com.tresEnRaya.tresEnRaya.tablero.infrastructure.TableroRepositoryMySQL;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import java.util.List;
 
@@ -18,11 +18,11 @@ public class TableroController {
         this.tableroUseCases = new TableroUseCases(new TableroRepositoryMySQL());
     }
 
-    @RequestMapping("/tabla")
+    @GetMapping("/tablero")
     public String tablero(Model model){
 
-        List<Tablero> movimiento = this.tableroUseCases.getTablero();
-        model.addAttribute("movimiento", movimiento);
+        String [][]  tabla = this.tableroUseCases.getTablero();
+        model.addAttribute("tabla", tabla);
 
         return "tablero";
     }

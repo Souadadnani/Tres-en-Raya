@@ -11,9 +11,10 @@ import java.util.List;
 public class TableroRepositoryMySQL implements TableroRepository{
 
     @Override
-    public List<Tablero> movimiento(Tablero tablero) {
+    public void movimiento(Tablero tablero) {
 
         Connection connection = DBConexion.getInstance();
+
         try(PreparedStatement pst = connection.prepareStatement("insert into jugadores(id) values(?);")){
             pst.setInt(1, tablero.getIdJugador());
             pst.executeUpdate();
@@ -30,12 +31,19 @@ public class TableroRepositoryMySQL implements TableroRepository{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return this.getTablero();
+
     }
 
     @Override
-    public List<Tablero> getTablero(){
-        List<Tablero> tablero = new ArrayList<>();
+    public String [][] getTablero(){
+
+        String [][] tabla = new String[3][3];
+        for(int i = 0; i < tabla.length; i++){
+            for(int j = 0; j < tabla.length; j++) {
+                tabla[i][j] = " ";
+            }
+        }
+
         String query = "select * from tablero;";
         try(Statement st = DBConexion.getInstance().createStatement()){
             ResultSet rs = st.executeQuery(query);
@@ -43,12 +51,19 @@ public class TableroRepositoryMySQL implements TableroRepository{
                 Integer idJugador = rs.getInt(1);
                 Integer fila = rs.getInt(2);
                 Integer columna = rs.getInt(3);
-                tablero.add(new Tablero(idJugador, fila, columna));
+                Tablero t = new Tablero(idJugador, fila, columna);
+
+                    if (idJugador == 1){
+                        tabla[fila-1][columna-1] = "X";
+                    }else {
+                        tabla[fila-1][columna-1] = "O";
+                    }
+
             }
         } catch (SQLException e) {
             System.err.println(e);
         }
-        return tablero;
+        return tabla;
     }
 
     @Override
