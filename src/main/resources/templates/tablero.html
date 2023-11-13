@@ -2,9 +2,28 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <style>
+        table{
+            border: none;
+            margin: 10%;
+        }
+        td{
+            height: 70px;
+            width: 70px;
+            text-align: center;
+            background-color: #d3c6cc;
+            border: none;
+            font-weight: bold;
+        }
+        td:hover{
+            background-color: #9c5361;
+            border: 1px solid;
+        }
+    </style>
     <title>Tablero</title>
 </head>
 <body>
+
     <table border="2">
 
         <tr th:each="fila :${tabla}">
@@ -12,5 +31,6 @@
         </tr>
 
     </table>
+
 </body>
 </html>

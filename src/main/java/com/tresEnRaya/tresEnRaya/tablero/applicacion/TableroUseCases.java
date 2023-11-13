@@ -14,12 +14,27 @@ public class TableroUseCases {
         this.tableroRepository = tableroRepository;
     }
 
-    public void movimiento(Tablero tablero){
-        this.tableroRepository.movimiento(tablero);
+    public List<Tablero> movimiento(Tablero tablero){
+        return this.tableroRepository.movimiento(tablero);
     }
 
-    public String [][]  getTablero(){
-        return  this.tableroRepository.getTablero();
+    public Character [][] getTablero(){
+
+        Character [][] tabla = new Character[3][3];
+        for(int i = 0; i < tabla.length; i++){
+            for(int j = 0; j < tabla.length; j++) {
+                tabla[i][j] = ' ';
+            }
+        }
+
+        for(Tablero t: this.tableroRepository.getTablero()){
+            if (t.getIdJugador() == 1){
+                tabla[t.getFila()-1][t.getColumna()-1] = 'X';
+            }else{
+                tabla[t.getFila()-1][t.getColumna()-1] = 'O';
+            }
+        }
+        return tabla;
     }
 
     public void limpiar(){

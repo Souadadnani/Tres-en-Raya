@@ -1,4 +1,4 @@
-package com.tresEnRaya.tresEnRaya.tablero.infrastructure.db;
+package com.tresEnRaya.tresEnRaya.context;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

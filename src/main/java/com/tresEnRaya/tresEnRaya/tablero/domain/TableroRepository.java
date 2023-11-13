@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface TableroRepository {
 
-    void movimiento(Tablero tablero);
+    List<Tablero> movimiento(Tablero tablero);
 
-    String [][]  getTablero();
+    List<Tablero> getTablero();
 
     void limpair();
 
