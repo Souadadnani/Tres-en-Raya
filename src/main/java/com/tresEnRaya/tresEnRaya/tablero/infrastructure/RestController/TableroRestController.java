@@ -1,4 +1,4 @@
-package com.tresEnRaya.tresEnRaya.tablero.infrastructure.ResController;
+package com.tresEnRaya.tresEnRaya.tablero.infrastructure.RestController;
 
 import com.tresEnRaya.tresEnRaya.tablero.applicacion.TableroUseCases;
 

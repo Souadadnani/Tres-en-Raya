@@ -5,50 +5,43 @@
     <title>Tablero</title>
 </head>
 <body>
-    <table border="2" th:each="t :${movimiento}">
-        <tr >
-            <td>
-                <span th:if="${t.idJugador == 1 && t.posicionfila == 1 && t.posicionColumna=1}"></span>
-                <span th:if="${t.idJugador == 2 && t.posicionfila == 1 && t.posicionColumna=1}"></span>
-            </td>
+    <table border="2">
+        <tr>
+            <td th:each="t :${movimiento}" th:if="${t.idJugador == 1 && t.posicionFila == 1 && t.posicionColumna==1}">X</td>
+            <td th:each="t :${movimiento}"  th:if="${t.idJugador == 1 && t.posicionFila == 1 && t.posicionColumna==2}">X</td>
+            <td th:each="t :${movimiento}" th:if="${t.idJugador == 1 && t.posicionFila == 1 && t.posicionColumna==3}">X</td>
+        </tr>
 
-            <td>
-                <span th:if="${t.idJugador == 1 && t.posicionfila == 1 && t.posicionColumna=2}"></span>
-                <span th:if="${t.idJugador == 2 && t.posicionfila == 1 && t.posicionColumna=2}"></span>
-            </td>
-            <td>
-                <span th:if="${t.idJugador == 1 && t.posicionfila == 1 && t.posicionColumna=3}"></span>
-                <span th:if="${t.idJugador == 2 && t.posicionfila == 1 && t.posicionColumna=3}"></span>
-            </td>
-        </tr>
         <tr>
-            <td>
-                <span th:if="${t.idJugador == 2 && t.posicionfila == 2 && t.posicionColumna=1}"></span>
-                <span th:if="${t.idJugador == 1 && t.posicionfila == 2 && t.posicionColumna=1}"></span>
-            </td>
-            <td>
-                <span th:if="${t.idJugador == 2 && t.posicionfila == 3 && t.posicionColumna=1}"></span>
-                <span th:if="${t.idJugador == 1 && t.posicionfila == 3 && t.posicionColumna=1}"></span>
-            </td>
-            <td>
-                <span th:if="${t.idJugador == 2 && t.posicionfila == 4 && t.posicionColumna=1}"></span>
-                <span th:if="${t.idJugador == 1 && t.posicionfila == 4 && t.posicionColumna=1}"></span>
-            </td>
+            <td th:each="t :${movimiento}"  th:if="${t.idJugador == 1 && t.posicionFila == 2 && t.posicionColumna==1}">X</td>
+            <td th:each="t :${movimiento}" th:if="${t.idJugador == 1 && t.posicionFila == 2 && t.posicionColumna==2}">X</td>
+            <td th:each="t :${movimiento}"  th:if="${t.idJugador == 1 && t.posicionFila == 2 && t.posicionColumna==3}">X</td>
         </tr>
+
         <tr>
-            <td>
-                <span th:if="${t.idJugador == 1 && t.posicionfila == 3 && t.posicionColumna=1}"></span>
-                <span th:if="${t.idJugador == 2 && t.posicionfila == 3 && t.posicionColumna=1}"></span>
-            </td>
-            <td>
-                <span th:if="${t.idJugador == 1 && t.posicionfila == 3 && t.posicionColumna=1}"></span>
-                <span th:if="${t.idJugador == 2 && t.posicionfila == 3 && t.posicionColumna=1}"></span>
-            </td>
-            <td>
-                <span th:if="${t.idJugador == 1 && t.posicionfila == 3 && t.posicionColumna=1}"></span>
-                <span th:if="${t.idJugador == 2 && t.posicionfila == 3 && t.posicionColumna=1}"></span>
-            </td>
+            <td th:each="t :${movimiento}"  th:if="${t.idJugador == 1 && t.posicionFila == 3 && t.posicionColumna==1}">X</td>
+            <td th:each="t :${movimiento}" th:if="${t.idJugador == 1 && t.posicionFila == 3 && t.posicionColumna==2}">X</td>
+            <td th:each="t :${movimiento}"  th:if="${t.idJugador == 1 && t.posicionFila == 3 && t.posicionColumna==3}">X</td>
         </tr>
+
+        <tr>
+            <td th:each="t :${movimiento}" th:if="${t.idJugador == 2 && t.posicionFila == 1 && t.posicionColumna==1}">O</td>
+            <td th:each="t :${movimiento}"  th:if="${t.idJugador == 2 && t.posicionFila == 1 && t.posicionColumna==2}">O</td>
+            <td th:each="t :${movimiento}" th:if="${t.idJugador == 2 && t.posicionFila == 1 && t.posicionColumna==3}">O</td>
+        </tr>
+
+        <tr>
+            <td th:each="t :${movimiento}"  th:if="${t.idJugador == 2 && t.posicionFila == 2 && t.posicionColumna==1}">O</td>
+            <td th:each="t :${movimiento}" th:if="${t.idJugador == 2 && t.posicionFila == 2 && t.posicionColumna==2}">O</td>
+            <td th:each="t :${movimiento}"  th:if="${t.idJugador == 2 && t.posicionFila == 2 && t.posicionColumna==3}">O</td>
+        </tr>
+
+        <tr>
+            <td th:each="t :${movimiento}"  th:if="${t.idJugador == 2 && t.posicionFila == 3 && t.posicionColumna==1}">O</td>
+            <td th:each="t :${movimiento}" th:if="${t.idJugador == 2 && t.posicionFila == 3 && t.posicionColumna==2}">O</td>
+            <td th:each="t :${movimiento}"  th:if="${t.idJugador == 2 && t.posicionFila == 3 && t.posicionColumna==3}">O</td>
+        </tr>
+
     </table>
 </body>
 </html>
