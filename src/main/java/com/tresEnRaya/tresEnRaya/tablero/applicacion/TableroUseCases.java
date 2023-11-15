@@ -37,8 +37,15 @@ public class TableroUseCases {
         return tabla;
     }
 
-    public void limpiar(){
+    public Character [][] limpiar(){
         this.tableroRepository.limpair();
+        Character [][] tabla = new Character[3][3];
+        for(int i = 0; i < tabla.length; i++){
+            for(int j = 0; j < tabla.length; j++) {
+                tabla[i][j] = ' ';
+            }
+        }
+        return tabla;
     }
 
 }

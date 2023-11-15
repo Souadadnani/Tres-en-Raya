@@ -1,0 +1,22 @@
+    table{
+        border: none;
+        margin: 10%;
+    }
+    td{
+        height: 70px;
+        width: 70px;
+        text-align: center;
+        background-color: #d3c6cc;
+        border: none;
+        font-weight: bold;
+    }
+    td:hover{
+        background-color: #9c5361;
+        border: 1px solid;
+    }
+
+    button{
+        background-color: #9c5361;
+        width: 70px;
+        height: 50px;
+    }

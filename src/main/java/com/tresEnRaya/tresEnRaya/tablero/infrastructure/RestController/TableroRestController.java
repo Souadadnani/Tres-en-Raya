@@ -27,8 +27,8 @@ public class TableroRestController {
     }
 
     @PostMapping("/limpiar")
-    void limpiar(){
-        this.tableroUseCasess.limpiar();
+    Character[][] limpiar(){
+        return this.tableroUseCasess.limpiar();
     }
 
 
