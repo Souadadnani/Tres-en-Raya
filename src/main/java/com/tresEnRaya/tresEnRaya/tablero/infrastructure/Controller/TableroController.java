@@ -6,6 +6,7 @@ import com.tresEnRaya.tresEnRaya.tablero.infrastructure.TableroRepositoryMySQL;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 import java.util.List;
@@ -26,5 +27,12 @@ public class TableroController {
 
         return "tablero";
     }
+
+    @PostMapping("/limpiar")
+    String limpiar(){
+        this.tableroUseCases.limpiar();
+        return "redirect:/tablero";
+    }
+
 
 }

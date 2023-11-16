@@ -26,10 +26,7 @@ public class TableroRestController {
          return this.tableroUseCasess.movimiento(tablero);
     }
 
-    @PostMapping("/limpiar")
-    Character[][] limpiar(){
-        return this.tableroUseCasess.limpiar();
-    }
+
 
 
 }
