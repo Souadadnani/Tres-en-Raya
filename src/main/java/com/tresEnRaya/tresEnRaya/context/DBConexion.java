@@ -14,7 +14,7 @@ public class DBConexion {
     public static Connection getInstance(){
         if (conexion == null){
             try {
-                conexion = DriverManager.getConnection("jdbc:mysql://dbaurora.cluster-clb7qxolr0lc.us-east-1.rds.amazonaws.com/tres_en_raya", "admin", "piramide");
+                conexion = DriverManager.getConnection("jdbc:mysql://127.0.0.1:40000/prueba", "root", "YOUR_ROOT_PASSWORD_HERE");
             } catch (SQLException e) {
                 System.err.println(e);
             }
