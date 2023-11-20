@@ -10,7 +10,6 @@ public class TableroUseCases {
     private TableroRepository tableroRepository;
 
     public TableroUseCases(TableroRepository tableroRepository) {
-
         this.tableroRepository = tableroRepository;
     }
 
@@ -36,15 +35,8 @@ public class TableroUseCases {
         return tabla;
     }
 
-    public Character [][] limpiar(){
+    public void limpiar(){
         this.tableroRepository.limpair();
-        Character [][] tabla = new Character[3][3];
-        for(int i = 0; i < tabla.length; i++){
-            for(int j = 0; j < tabla.length; j++) {
-                tabla[i][j] = ' ';
-            }
-        }
-        return tabla;
     }
 
 }

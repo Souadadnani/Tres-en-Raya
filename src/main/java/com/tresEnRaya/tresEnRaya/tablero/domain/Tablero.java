@@ -19,7 +19,6 @@ public class Tablero {
     public Integer getFila() {
         return fila;
     }
-
     public Integer getColumna() {
         return columna;
     }

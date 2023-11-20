@@ -8,15 +8,13 @@
 <body>
 
     <table border="2">
-
         <tr th:each="fila :${tabla}">
             <td th:each="item: ${fila}" th:text="${item}"></td>
         </tr>
-        <form action="/limpiar" method="post">
-            <button>Borrar</button>
-        </form>
-
     </table>
 
+    <form action="/limpiar" method="post">
+        <button>Borrar</button>
+    </form>
 </body>
 </html>

@@ -12,16 +12,14 @@ public class TableroRepositoryMySQL implements TableroRepository{
 
     @Override
     public List<Tablero> movimiento(Tablero tablero) {
-
         Connection connection = DBConexion.getInstance();
-        for(Integer id: this.getJugadores()){
-            if (id != tablero.getIdJugador()){
-                try(PreparedStatement pst = connection.prepareStatement("insert into jugadores(id) values(?);")){
-                    pst.setInt(1, tablero.getIdJugador());
-                    pst.executeUpdate();
-                } catch (SQLException e) {
-                    System.err.println(e);
-                }
+        List<Integer> jugadores = this.getJugadores();
+        if(jugadores.size() < 2) {
+            try (PreparedStatement pst = connection.prepareStatement("insert into jugadores(id) values(?);")) {
+                pst.setInt(1, tablero.getIdJugador());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                System.err.println(e);
             }
         }
         try(PreparedStatement ps = connection.prepareStatement("insert into tablero(jugador, posicionFila, posicionColumna) values(?,?,?);")){
@@ -29,7 +27,6 @@ public class TableroRepositoryMySQL implements TableroRepository{
             ps.setInt(2, tablero.getFila());
             ps.setInt(3, tablero.getColumna());
             ps.executeUpdate();
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

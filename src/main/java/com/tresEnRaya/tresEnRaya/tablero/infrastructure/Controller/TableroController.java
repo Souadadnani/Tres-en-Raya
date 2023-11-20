@@ -20,9 +20,9 @@ public class TableroController {
     }
 
     @GetMapping("/tablero")
-    public String tablero(Model model){
+    String tablero(Model model){
 
-        Character [][]  tabla = this.tableroUseCases.getTablero();
+        Character [][] tabla = this.tableroUseCases.getTablero();
         model.addAttribute("tabla", tabla);
 
         return "tablero";

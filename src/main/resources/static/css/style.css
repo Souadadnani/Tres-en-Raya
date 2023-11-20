@@ -1,6 +1,6 @@
     table{
         border: none;
-        margin: 10%;
+        margin: 10% 35%;
     }
     td{
         height: 70px;
@@ -17,6 +17,7 @@
 
     button{
         background-color: #9c5361;
-        width: 70px;
-        height: 50px;
+        width: 60px;
+        height: 40px;
+        margin: 0 44%
     }
