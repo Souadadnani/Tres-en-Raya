@@ -26,7 +26,6 @@ public class TableroUseCases {
                 tabla[i][j] = ' ';
             }
         }
-
         for(Tablero t: this.tableroRepository.getTablero()){
             if (t.getIdJugador() == 1){
                 tabla[t.getFila()-1][t.getColumna()-1] = 'X';

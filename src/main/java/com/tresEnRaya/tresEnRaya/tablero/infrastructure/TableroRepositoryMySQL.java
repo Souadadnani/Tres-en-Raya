@@ -14,14 +14,16 @@ public class TableroRepositoryMySQL implements TableroRepository{
     public List<Tablero> movimiento(Tablero tablero) {
 
         Connection connection = DBConexion.getInstance();
-
-      /*  try(PreparedStatement pst = connection.prepareStatement("insert into jugadores(id) values(?);")){
-            pst.setInt(1, tablero.getIdJugador());
-            pst.executeUpdate();
-        } catch (SQLException e) {
-            System.err.println(e);
-        }*/
-
+        for(Integer id: this.getJugadores()){
+            if (id != tablero.getIdJugador()){
+                try(PreparedStatement pst = connection.prepareStatement("insert into jugadores(id) values(?);")){
+                    pst.setInt(1, tablero.getIdJugador());
+                    pst.executeUpdate();
+                } catch (SQLException e) {
+                    System.err.println(e);
+                }
+            }
+        }
         try(PreparedStatement ps = connection.prepareStatement("insert into tablero(jugador, posicionFila, posicionColumna) values(?,?,?);")){
             ps.setInt(1, tablero.getIdJugador());
             ps.setInt(2, tablero.getFila());
@@ -34,14 +36,26 @@ public class TableroRepositoryMySQL implements TableroRepository{
         return this.getTablero();
     }
 
+    public List<Integer> getJugadores(){
+        List<Integer> jugadores = new ArrayList<>();
+        try(Statement st = DBConexion.getInstance().createStatement()){
+            ResultSet rs = st.executeQuery("select * from jugadores;");
+            while (rs.next()){
+                Integer idJugador = rs.getInt("id");
+                jugadores.add(idJugador);
+            }
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+        return jugadores;
+    }
+
     @Override
     public List<Tablero> getTablero(){
 
         List<Tablero> tabla = new ArrayList<>();
-
-        String query = "select * from tablero;";
         try(Statement st = DBConexion.getInstance().createStatement()){
-            ResultSet rs = st.executeQuery(query);
+            ResultSet rs = st.executeQuery("select * from tablero;");
             while(rs.next()){
                 Integer idJugador = rs.getInt(1);
                 Integer fila = rs.getInt(2);
@@ -56,7 +70,6 @@ public class TableroRepositoryMySQL implements TableroRepository{
 
     @Override
     public void limpair() {
-
         try(PreparedStatement ps = DBConexion.getInstance().prepareStatement("delete from tablero;")){
             ps.executeUpdate();
         } catch (SQLException e) {
